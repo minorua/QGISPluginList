@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QGIS Plugin List</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .name {
+            font-weight: bold;
+        }
+
+        #bar {
+            text-align: right;
+        }
+        .asc {
+            font-weight: bold;
+        }
+        .desc {
+            font-weight: bold;
+            transform: rotate(180deg);
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.0/list.min.js"></script>
+</head>
+<body>
+<div id="plugins">
+
+<div id="bar">
+<input class="search" placeholder="Search" />
+Sort by <button class="sort" data-sort="name">Name</button><button class="sort" data-sort="author">Author</button><button class="sort" data-sort="created">Create date</button><button class="sort" data-sort="updated">Update date</button><button class="sort" data-sort="size">Size</button>
+</div>
+
+<ul class="list">
+{records}
+</ul>
+</div>
+
+<script>
+
+var options = {
+
+    searchDelay: 750,
+
+    page: 2000,
+
+    valueNames: ["name", "author", "tags", "description", "about", {name: "size", attr: "data-size"}, "updated", "created"]
+
+};
+
+var pluginList = new List("plugins", options);
+
+</script>
+</body>
+</html>
